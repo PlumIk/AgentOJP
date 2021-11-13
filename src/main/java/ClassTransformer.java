@@ -79,52 +79,7 @@ public class ClassTransformer  implements ClassFileTransformer {
             } catch (CannotCompileException e) {
                 e.printStackTrace();
             }
- /*
-            try {
-                ClassPool pool = ClassPool.getDefault();
-                CtClass ctClass = pool.get("SomeProg");
-                CtMethod myMain = ctClass.getDeclaredMethod("main");
-                ctClass.removeMethod(myMain);
 
-                CtField toBeDeleted = ctClass.getField("myInt1");
-                ctClass.removeField(toBeDeleted);
-                CtField ctField = new CtField(CtClass.intType, "myInt1", ctClass);
-                ctField.setModifiers(Modifier.STATIC | Modifier.FINAL | Modifier.PUBLIC);
-                ctClass.addField(ctField, "123");
-
-                CtField name = CtField.make("static int myInt2 = 45;", ctClass);
-                ctClass.addField(name);
-
-                ctClass.addMethod(CtNewMethod.make("public static void main(String[] args) { int localInt = 67; System.out.println(\"Our numbers : \" + myInt1 + \" : \" + myInt2 + \" : \" + localInt);}", ctClass));
-                ctClass.addMethod(CtNewMethod.make("public void onEvent(){System.out.println(\"Hello World\");}", ctClass));
-
-                CtMethod[] methods = ctClass.getDeclaredMethods();
-
-                for (CtMethod method : methods) {
-                    System.out.println("!!!!!!! + " + method.getName());
-                    if (method.getName().equals("main")) {
-                        try {
-                            method.insertAfter("System.out.println(\"Logging using Agent\");");
-                        } catch (CannotCompileException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                try {
-                    byteCode = ctClass.toBytecode();
-                    ctClass.detach();
-                    return byteCode;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                ctClass.detach();
-                return byteCode;
-            } catch (NotFoundException e) {
-                System.out.println(e.getMessage());
-            } catch (CannotCompileException e) {
-                e.printStackTrace();
-            }
-*/
         }
 
 
